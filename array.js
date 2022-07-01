@@ -22,5 +22,7 @@ const data = ["a", "b", "c", "d", "e"]
 // data.splice(2, 3, "z", "ss")
 // console.log(data)
 
-data.splice(3, 0, "x")
-console.log(data)
+// data.splice(3, 0, "x")
+// console.log(data)
+
+console.log(data.includes("c"))
