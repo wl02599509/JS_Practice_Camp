@@ -11,7 +11,7 @@ const chars2 = ["O","Q","R","S"]
 function missingChar(chars) {
   const arr = []
   
-  chars.forEach(function(vac){
+  chars.map(function(vac){
     arr.push(vac.codePointAt())
     })
   //將引數的陣列元素透過forEach，一個一個轉換成10進位的unicode後，放到新的陣列arr裡

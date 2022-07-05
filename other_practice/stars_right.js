@@ -1,8 +1,8 @@
-function tree(stars){
-    for( let star = 1, hole = stars; star < stars, hole > 0; star += 1, hole -= 1 ){
-        var body = (" ".repeat(hole) + "*".repeat(star))
-        console.log(body)
+function star_to_right(stars_num){
+    for( let star = 1, space = stars_num; star < stars_num, space > 0; star += 1, space -= 1 ){
+        var result = (" ".repeat(space) + "*".repeat(star))
+        console.log(result)
     }
 }
 
-tree(5)
+star_to_right(5)
