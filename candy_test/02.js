@@ -11,13 +11,13 @@ const chars2 = ["O","Q","R","S"]
 function missingChar(chars) {
   const arr = []
   
-  chars.map(function(vac){
-    arr.push(vac.codePointAt())
-    })
-  //將引數的陣列元素透過forEach，一個一個轉換成10進位的unicode後，放到新的陣列arr裡
-  for(num_2 = 1, num_1 = 0; num_2 < arr.length; num_2++, num_1++){
-    if (arr[num_2] - arr[num_1] !== 1){
-      return String.fromCodePoint((arr[num_2] + arr[num_1]) / 2); 
+  for(let i = 0; i < chars.length; i++){
+    arr.push(chars[i].codePointAt());
+  }
+  //將引數的陣列元素透過for迴圈，一個一個轉換成10進位的unicode後，放到新的陣列arr裡
+  for(let num = 1 ; num < arr.length; num++){
+    if (arr[num] - arr[num - 1] !== 1){
+      return String.fromCodePoint((arr[num] + arr[num - 1]) / 2); 
     }
   }
   //接著用for迴圈，讓後一碼減去前一碼，確認數字（字母）是否連續，如果相減的結果不是1，代表沒有連續，那就將相減不等於1的兩個數字相加除二，便得到缺少的數字，最後再將該數字以10進位轉換成字串，便得缺少的字母。
