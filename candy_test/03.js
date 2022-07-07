@@ -8,8 +8,8 @@ let list = [false, 1, 0, -1, 2, 0, 1, 3, "a"]
 function moveZerosToEnd(arr) {
     arr.forEach(function(elm){             
         if (elm === 0){                    //用判斷式將每一個被forEach抓出來的元素比對是否為0，如果為0，
-            const zero = arr.indexOf(0);   //用indexOf找出它陣列中的索引值
-            arr.splice(zero, 1);           //把0從陣列中刪去         
+            const zeroIndex = arr.indexOf(0);   //用indexOf找出0在陣列中的索引值
+            arr.splice(zeroIndex, 1);           //把0從陣列中刪去         
             arr.push(0);                   //把0放到陣列後面
         }                           
     });
