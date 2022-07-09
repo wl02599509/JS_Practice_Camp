@@ -8,7 +8,7 @@ let list = [false, 1, 0, -1, 2, 0, 1, 3, "a"]
 function moveZerosToEnd(arr) {
     const zeroArr = arr.filter(num => num === 0)
     //先把0從arr陣列挑出來成新陣列zeroArr
-    const noZero = arr.filter(num => num !== 0)
+    const noZeroArr = arr.filter(num => num !== 0)
     //再把arr裡非為0的元素挑出來成新陣列noZero
     const mix = [...noZero, ...zeroArr]
     // const mix = arr.concat(zeroArr)
