@@ -15,8 +15,8 @@ function humanReadableTimer(seconds) {
     //先把引數減掉小時的秒數，在換算成分鐘
     const second = timeScale((seconds - (hour * 3600 + minute * 60)));
     //把引數減掉時與分的時間，剩下為秒
-    const clock = (hour + ":" + minute + ":" + second);
-    return clock;
+    return hour + ":" + minute + ":" + second;
+     
 }
   
 
