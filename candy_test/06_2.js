@@ -4,13 +4,17 @@
 // 範例：
 
 function findDifferent(numbers) {
-    const order_list =  numbers.sort();
+    const orderList =  numbers.sort();
     //先將陣列由小至大排序
-    if(order_list[0] !== order_list[1]){
-        return order_list[0];
-    //如果第一個元素跟第二個元素不同，則回傳第一個元素
-    }else if((order_list[order_list.length-1]) !== order_list[order_list.length-2]){
-        return order_list[order_list.length-1];
+    const firstNum = orderList[0];
+    const secondNum = orderList[1];
+    const lastNum = orderList[orderList.length-1];
+    const lastTwoNum = orderList[orderList.length-2];
+    if(firstNum !== secondNum){
+        return firstNum;
+    //如果第一個元素跟第二個元素不同，則回傳第一個元素。
+    }else if((lastNum) !== lastTwoNum){
+        return lastNum;
     //如果最後一個元素不等於倒數第二個元素，則回傳最後一個元素。
     }
 }
