@@ -6,12 +6,10 @@
 function findDifferent(numbers) {
     const orderList =  numbers.sort();
     //先將陣列由小至大排序
-    const firstNum = orderList[0];
-    const secondNum = orderList[1];
     const lastNum = orderList[orderList.length-1];
     const lastTwoNum = orderList[orderList.length-2];
-    if(firstNum !== secondNum){
-        return firstNum;
+    if(orderList[0] !== orderList[1]){
+        return orderList[0];
     //如果第一個元素跟第二個元素不同，則回傳第一個元素。
     }else if((lastNum) !== lastTwoNum){
         return lastNum;
