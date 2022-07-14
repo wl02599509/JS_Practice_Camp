@@ -40,14 +40,19 @@ function expandedForm(num) {
         }
     }
     // return arrWithoutZeroElm
-    const addOne = arrWithoutZeroElm.map(function(elm){
+    
+    const result = arrWithoutZeroElm.map(function(elm){
         if(elm.startsWith('0')){
-            arrWithoutZeroElm.splice(arrWithoutZeroElm.indexOf(elm), 0, "1");
+            const apartZeroElm = elm.split('');
+            apartZeroElm.unshift('1');
+            const combinationArr = apartZeroElm.join('');
+            return combinationArr ;
         }else{
             return elm;
         }
     })
-    return addOne;
+
+    return result.join('');
 
     // return arrWithoutZeroElm.join('')
 }
