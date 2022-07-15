@@ -28,5 +28,5 @@ hi.appendChild(ul);
 for(let i = 1; i < 4; i++){
     const li = document.createElement("li")
     li.textContent(`hi ${i}`);
-    ul.appendChild(li)
+    ul.appendChild(li);
 }

@@ -4,57 +4,27 @@
 // 範例：9527 變成 "1000 x 9 + 100 x 5 + 10 x 2 + 7"
 
 function expandedForm(num) {
-    //將傳入的數字先轉換為字串，再套用split('')將數字分割成字元。
-    const numberArr = String(num).split('')  
-
-    //把 0 補上
-    const arrWithCross = numberArr.map(function(elm){
-        if(numberArr.length == 1){
-            return elm
-        }else if(numberArr.length - 1 == numberArr.indexOf(elm)){
+    const arr = String(num).split('');
+    //    return arr
+    const arrWithoutZero = arr.filter((elm) => elm !== '0');
+    //    return arrWithoutZero;
+    const length = arr.length;
+    // const addCross = arrWithoutZero.map((elm) => {
+    //     if ( arr.indexOf(elm) == length - 1 ) {
+    //         return elm;
+    //     } else {
+    //         return elm.padStart(4, ' x ');
+    //     }
+    // })
+    // return addCross
+    const addTenSquare = arrWithoutZero.map((elm) => {
+        if ( arr.indexOf(elm) == length - 1 ) {
             return elm;
-        }else if(Number(elm) !== 0){
-            return elm.padStart(4, ' x ');
-        }else{
-            return elm
+        } else {
+            return elm.padStart(length - arr.indexOf(elm) + 1, 10 ** (length - 1));
         }
     })
-
-    //增加 x 
-    const zeroArr = arrWithCross.map(function(elm){
-        if(elm.startsWith(' x ')){
-            return elm.padStart(arrWithCross.length - 1 - arrWithCross.indexOf(elm) + 4, 0);
-        }else{
-            return elm;
-        }
-    })
-
-    //把 '0' 字串元素去掉。
-    const arrWithoutZeroElm = zeroArr.filter((elm) => elm != '0');
-
-    //把 + 新增到陣列裡的數字間。
-    const length = arrWithoutZeroElm.length
-    for(let i = 1; i <= length; i+=2){
-        if(length > 1){
-            arrWithoutZeroElm.splice(i, 0, " + ");
-        }
-    }
-    // return arrWithoutZeroElm
-    
-    const result = arrWithoutZeroElm.map(function(elm){
-        if(elm.startsWith('0')){
-            const apartZeroElm = elm.split('');
-            apartZeroElm.unshift('1');
-            const combinationArr = apartZeroElm.join('');
-            return combinationArr ;
-        }else{
-            return elm;
-        }
-    })
-
-    return result.join('');
-
-    // return arrWithoutZeroElm.join('')
+    return addTenSquare
 }
 console.log(expandedForm(8)) // 印出 "8"
 console.log(expandedForm(25)) // 印出 "10 x 2 + 5"

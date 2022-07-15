@@ -8,15 +8,14 @@ function findSomeDifferent(numbers) {
     //先算出陣列總和
     const find_odd = numbers.filter((elm) => elm % 2 == 1);
     const find_even = numbers.filter((elm) => elm % 2 == 0);
-    
-    if (sum % 2 == 1){
+    // return sum
+    if (sum % 2 == 0){
     //總和除二的餘數為1，代表有個奇數混入偶數陣列裡。
-        return find_odd;
+        return find_even.shift();
     //再透過filter把每個元素，進行驗算，找出餘數為1的元素
     }else{
     //如果總和除二的餘數為0，代表是有偶數混入奇數陣列裡。
-        return find_even;
-    //
+        return find_odd.shift();
     }
 }
 
