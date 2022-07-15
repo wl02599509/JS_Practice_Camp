@@ -5,12 +5,11 @@
 //      1450 => 1 + 4 + 5 + 0 => 10 => 1 + 0 => 1
 
 const numberReducer = (num) => {
-    //傳入的引數，字串化，分開字元成陣列，map轉數字，reduce加總
-    const numbers = num.toString().split('').map((elm) => Number(elm)).reduce((acc, cv) =>  (acc) + (cv));
-    //再一次
-    return numbers.toString().split('').map((elm) => Number(elm)).reduce((acc, cv) =>  (acc) + (cv));
+    while (num >= 10) {
+        num = num.toString().split('').map((elm) => Number(elm)).reduce((acc, cv) =>  (acc) + (cv));
+    }
+    return num;
 }
-  
 console.log(numberReducer(9527)) // 印出 5
 console.log(numberReducer(1450)) // 印出 1
 console.log(numberReducer(5566108)) // 印出 4

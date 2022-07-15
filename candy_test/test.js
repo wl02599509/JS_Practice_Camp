@@ -5,11 +5,10 @@
 //      1450 => 1 + 4 + 5 + 0 => 10 => 1 + 0 => 1
 
 const numberReducer = (num) => {
-    const numbers = num.toString().split('').map((elm) => Number(elm)).reduce((acc, cv) =>  (acc) + (cv));
-    
-    const result = numbers.toString().split('').map((elm) => Number(elm)).reduce((acc, cv) =>  (acc) + (cv));
-
-    return result;
+    while (num >= 10) {
+        num = num.toString().split('').map((elm) => Number(elm)).reduce((acc, cv) =>  (acc) + (cv));
+    }
+    return num;
 }
 console.log(numberReducer(9527)) // 印出 5
 console.log(numberReducer(1450)) // 印出 1
