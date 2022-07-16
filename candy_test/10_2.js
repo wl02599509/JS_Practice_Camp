@@ -23,7 +23,7 @@ function expandedForm(num) {
         }
     })
     
-    const  noUndefined = result.filter( (elm) => { if (elm) { return elm } })
+    const  noUndefined = result.filter( (elm) => elm !== undefined)
     //過濾掉 undefined (在判斷式裡為false)
 
     return noUndefined.map( function (elm) {
