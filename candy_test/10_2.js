@@ -4,27 +4,37 @@
 // 範例：9527 變成 "1000 x 9 + 100 x 5 + 10 x 2 + 7"
 
 function expandedForm(num) {
-    const arr = String(num).split('');
-    //    return arr
-    const arrWithoutZero = arr.filter((elm) => elm !== '0');
-    //    return arrWithoutZero;
-    const length = arr.length;
-    // const addCross = arrWithoutZero.map((elm) => {
-    //     if ( arr.indexOf(elm) == length - 1 ) {
-    //         return elm;
-    //     } else {
-    //         return elm.padStart(4, ' x ');
-    //     }
-    // })
-    // return addCross
-    const addTenSquare = arrWithoutZero.map((elm) => {
-        if ( arr.indexOf(elm) == length - 1 ) {
-            return elm;
+    const unitWords = num.toString().split('');
+    const length = unitWords.length;
+    
+    //用map迴圈重組陣列元素
+    const result = unitWords.map( function(elm) {
+        if ( elm !== '0' ) {
+            if ( elm !== unitWords[length - 1 ] ){
+                return elm.replace(elm, `${10 ** (length - 1 - unitWords.indexOf(elm))} x ${elm} + `);
+                //針對非0與非末位元素的其他元素，增加10次方、乘號、自己本身與加號
+            } else {
+                return elm;
+                //回傳非0但是末位元素 
+            }
         } else {
-            return elm.padStart(length - arr.indexOf(elm) + 1, 10 ** (length - 1));
+            return;
+            //跳過0的元素
         }
     })
-    return addTenSquare
+    
+    const  noUndefined = result.filter( (elm) => { if (elm) { return elm } })
+    //過濾掉 undefined (在判斷式裡為false)
+
+    return noUndefined.map( function (elm) {
+                            if ( noUndefined.indexOf(elm) === noUndefined.length - 1 && elm.includes('+')) {
+                                return elm.replace(" + ", "");
+                            } else {
+                                return elm
+                            }
+                        })
+    //用 map 將 原 num 裡，跟 0 相鄰的尾數所增加的 + 消掉。
+                        .join('');
 }
 console.log(expandedForm(8)) // 印出 "8"
 console.log(expandedForm(25)) // 印出 "10 x 2 + 5"
