@@ -5,7 +5,22 @@
 //      [5, 5, 8, 8, 8, 4, 4]，`8` 出現了 3  次
 
 function findOddElm(numbers) {
-    return numbers.sort()
+    const order =  numbers.sort();
+    //先將引數陣列進行排序
+
+    let i = 0
+    while( order.length > 1){
+        if ( order[i] === order[i+1] ){
+            order.splice(order.indexOf(order[i]), 2)
+        //兩兩比較，如果一樣，splice刪掉這兩個相同的元素
+        } else {
+            i++ ;
+        //不一樣，則 i++ ，往後比較
+        }
+        //迴圈直到陣列只剩下那一個奇數數量的元素
+    }
+    return order[0];
+    //回傳它
 }
 
 console.log(findOddElm([1, 1, 2])) // 印出 2
