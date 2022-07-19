@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping Cat Practice</title>
     <link rel="stylesheet" href="styles/main.scss" />
-    <script type="module" src="scripts/main.js"></script>
+    <script type="module" src="scripts/main.js" defer></script>
   </head>
   <body>
     <main>
@@ -37,11 +37,13 @@
             <div class="card" data-product-id="624946E">
               <img src="images/cat001.jpg" class="card-img-top" alt="" />
               <div class="card-body">
-                <h5 class="title card-title fs-6 fw-light">老大</h5>
+                <h5 class="title card-title fs-6 fw-light" id="boss">老大</h5>
                 <p class="price">$20</p>
-                <button class="btn btn-sm btn-warning fw-light">
+                <button class="btn btn-sm btn-warning fw-light" id="boss-btn">
                   <i class="fas fa-cat"></i>
                 </button>
+                 <!-- const theDiv = element.closest(".card-body") -->
+                 <!-- theDiv.ques...("h5").textContent -->
               </div>
             </div>
           </div>
@@ -49,7 +51,7 @@
             <div class="card" data-product-id="044464F">
               <img src="images/cat002.jpg" class="card-img-top" alt="" />
               <div class="card-body">
-                <h5 class="card-title fs-6 fw-light">貝貝</h5>
+                <h5 class="card-title fs-6 fw-light" id="baybay">貝貝</h5>
                 <p class="price">$15</p>
                 <button class="btn btn-sm btn-warning fw-light">
                   <i class="fas fa-cat"></i>
@@ -61,7 +63,7 @@
             <div class="card" data-product-id="A6245B4">
               <img src="images/cat003.jpg" class="card-img-top" alt="" />
               <div class="card-body">
-                <h5 class="card-title fs-6 fw-light">老虎</h5>
+                <h5 class="card-title fs-6 fw-light" id="tiger">老虎</h5>
                 <p class="price">$10</p>
                 <button class="btn btn-sm btn-warning fw-light">
                   <i class="fas fa-cat"></i>
@@ -73,7 +75,7 @@
             <div class="card" data-product-id="09DC594">
               <img src="images/cat004.jpg" class="card-img-top" alt="" />
               <div class="card-body">
-                <h5 class="card-title fs-6 fw-light">胖胖</h5>
+                <h5 class="card-title fs-6 fw-light" id="fat">胖胖</h5>
                 <p class="price">$8.5</p>
                 <button class="btn btn-sm btn-warning fw-light">
                   <i class="fas fa-cat"></i>
@@ -85,7 +87,7 @@
             <div class="card" data-product-id="AAE759E">
               <img src="images/cat005.jpg" class="card-img-top" alt="" />
               <div class="card-body">
-                <h5 class="card-title fs-6 fw-light">小花</h5>
+                <h5 class="card-title fs-6 fw-light" id="flower">小花</h5>
                 <p class="price">$9.99</p>
                 <button class="btn btn-sm btn-warning fw-light">
                   <i class="fas fa-cat"></i>
@@ -97,7 +99,7 @@
             <div class="card" data-product-id="D014739">
               <img src="images/cat006.jpg" class="card-img-top" alt="" />
               <div class="card-body">
-                <h5 class="card-title fs-6 fw-light">黑臉</h5>
+                <h5 class="card-title fs-6 fw-light" id="black-face">黑臉</h5>
                 <p class="price">$12.5</p>
                 <button class="btn btn-sm btn-warning fw-light">
                   <i class="fas fa-cat"></i>
@@ -121,11 +123,11 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <!-- <tr>
                 <td>老大</td>
                 <td><input type="number" class="quantity" value="1" /></td>
-                <td>$20</td>
-                <td>$20</td>
+                <td class="price">$20</td>
+                <td class="sum">$20</td>
                 <td>
                   <button class="remove-item-btn btn btn-danger btn-sm">
                     <i class="fas fa-trash-alt"></i>
@@ -153,7 +155,7 @@
                     <i class="fas fa-trash-alt"></i>
                   </button>
                 </td>
-              </tr>
+              </tr> -->
             </tbody>
             <tfoot>
               <tr>
