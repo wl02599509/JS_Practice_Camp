@@ -3,7 +3,7 @@
 // 題目：檢查字串的 x 跟 o 的數量是不是一樣多，不分大小寫
 
 function xxoo(str) {
-    return str.replace(/[oO]+/g, '').length === str.replace(/[xX]+/g, '').length;
+    return str.replace(/o/gi, '').length === str.replace(/x/gi, '').length;
 }
 
 
